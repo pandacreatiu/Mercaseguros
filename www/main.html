@@ -480,19 +480,3 @@
 <script type="text/javascript"> app.initialize(); </script>
 </body>
 </html>
-
-<script type="text/javascript">
-var curr_screen = 'home';
-
-function goto(iam){
-	$('#'+curr_screen).hide();
-	curr_screen = iam;
-	$('#'+iam).show();
-}
-
-function to_home(){
-	$('#'+curr_screen).hide();
-	curr_screen = 'home';
-	$('#home').show();
-}
-</script>

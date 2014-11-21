@@ -1,3 +1,18 @@
+var curr_screen = 'home';
+
+function goto(iam){
+	$('#'+curr_screen).hide();
+	curr_screen = iam;
+	$('#'+iam).show();
+}
+
+function to_home(){
+	$('#'+curr_screen).hide();
+	curr_screen = 'home';
+	$('#home').show();
+}
+
+
 function resize() {
 	var w_total = $(window).width();
 	var h_total = $(window).height();
@@ -25,55 +40,12 @@ function resize() {
 
 $(window).resize(function() { resize(); });
 
-
 var app = {
     initialize: function() { this.bindEvents(); },
-
     bindEvents: function() { document.addEventListener('deviceready', this.onDeviceReady, false); },
-
     onDeviceReady: function() { app.receivedEvent('deviceready');  },
-
-    receivedEvent: function(id) {
-		/*var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-		
-		deviceInfo();*/
-		
-		resize();
-		
-        //console.log('Received Event: ' + id);
-    }
-
+    receivedEvent: function(id) { resize(); }
 };
-
-/*function deviceInfo() {
-	document.getElementById("cordova").innerHTML = cordova.version;
-	document.getElementById("platform").innerHTML = device.platform;
-	document.getElementById("version").innerHTML = device.version;
-	document.getElementById("uuid").innerHTML = device.uuid;
-	document.getElementById("model").innerHTML = device.model;
-	document.getElementById("width").innerHTML = screen.width;
-	document.getElementById("height").innerHTML = screen.height;
-	document.getElementById("colorDepth").innerHTML = screen.colorDepth;
-	document.getElementById("user-agent").textContent = navigator.userAgent;
-};
-
-function interceptBackbutton() { eventOutput("Back button intercepted"); };
-function interceptMenubutton() { eventOutput("Menu button intercepted"); };
-function interceptSearchbutton() { eventOutput("Search button intercepted"); };
-function interceptResume() { eventOutput("Resume event intercepted"); };
-function interceptPause() { eventOutput("Pause event intercepted"); };
-function interceptOnline() { eventOutput("Online event intercepted"); };
-function interceptOffline() { eventOutput("Offline event intercepted"); };
-
-var eventOutput = function(s) {
-    var el = document.getElementById("results");
-    el.innerHTML = el.innerHTML + s + "<br>";
-};*/
 
 function interceptBackbutton() { 
 	
@@ -82,7 +54,7 @@ function interceptBackbutton() {
 		$('#asistencia-urgente').show();
 		curr_screen = 'asistencia-urgente';
 	} else {
-		if(crr_screen == 'home') {
+		if(curr_screen == 'home') {
 			navigator.app.exitApp();
 		} else {
 			$('#'+curr_screen).hide();
@@ -93,7 +65,7 @@ function interceptBackbutton() {
 };
 
 function interceptMenubutton(){
-	if(crr_screen != 'home') {
+	if(curr_screen != 'home') {
 		$('#'+curr_screen).hide();
 		curr_screen = 'home';
 		$('#home').show();
