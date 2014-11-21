@@ -4,6 +4,31 @@ function goto(iam){
 	$('#'+curr_screen).hide();
 	curr_screen = iam;
 	$('#'+iam).show();
+	
+	
+	
+	if(iam == 'localizacion'){
+		
+		if (navigator.onLine) {
+			
+		setTimeout(function() {
+			var $frame = $('<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3092.2318606252948!2d-0.437048!3d39.19218!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61b0339aa7e835%3A0xbc05e54ba6e73988!2sBoix+Brokers+Consultores+Corredur%C3%ADa+de+Seguros%2C+S.L.!5e0!3m2!1ses!2ses!4v1416566913885" width="600" height="450" frameborder="0" style="border:0"></iframe>');
+			$('.content_iframe').html( $frame );
+			var w_total = $(window).width();
+			var h_total = $(window).height();
+			$('.content_iframe iframe').css('width', w_total+'px');
+			$('.content_iframe iframe').css('height', (h_total-80)+'px');	
+		}, 0);
+		
+		} else {
+		
+			$('.content_iframe').html('<div class="txt_oficina txt_gen"> PROXIMAMENTE </div>');
+		
+		}
+			
+	}
+	
+	
 }
 
 function to_home(){
@@ -36,8 +61,8 @@ function resize() {
 	
 	$('#home').css('height', h_total+'px');
 	
-	$('.content iframe').css('width', (w_total-30)+'px');
-	$('.content iframe').css('height', (h_total-80)+'px');
+	
+	
 	
 }
 
@@ -52,7 +77,30 @@ var app = {
 
 function interceptBackbutton() { 
 	
+	/*if(curr_screen == 'asistencia-coche' || curr_screen == 'asistencia-hogar' || curr_screen == 'asistencia-comercio' || curr_screen == 'asistencia-viaje' ) {
+		$('#'+curr_screen).hide();
+		$('#asistencia-urgente').show();
+		curr_screen = 'asistencia-urgente';	
+	}
+	
+	if(curr_screen == 'home') {
+		navigator.app.exitApp();
+	}
+	
+	if(curr_screen == 'localizacion') {
+		$('#'+curr_screen).hide();
+		$('#contacto-oficina').show();
+		curr_screen = 'contacto-oficina';
+	}
+		
+	if(curr_screen == 'xxxxxxxxxxxxx') {
+		$('#'+curr_screen).hide();
+		$('#home').show();
+		curr_screen = 'home';
+	}		*/
+	
 	switch(curr_screen) {
+		
 		case 'asistencia-coche':
 		case 'asistencia-hogar':
 		case 'asistencia-comercio':
@@ -73,7 +121,7 @@ function interceptBackbutton() {
         	break;
 			
 		default:
-			('#'+curr_screen).hide();
+			$('#'+curr_screen).hide();
 			$('#home').show();
 			curr_screen = 'home';
 			break;
