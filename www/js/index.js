@@ -36,6 +36,9 @@ function resize() {
 	
 	$('#home').css('height', h_total+'px');
 	
+	$('.content iframe').css('width', (w_total-30)+'px');
+	$('.content iframe').css('height', (h_total-80)+'px');
+	
 }
 
 $(window).resize(function() { resize(); });
@@ -49,19 +52,33 @@ var app = {
 
 function interceptBackbutton() { 
 	
-	if(curr_screen == 'asistencia-coche' || curr_screen == 'asistencia-hogar' || curr_screen == 'asistencia-comercio' || curr_screen == 'asistencia-viaje') {
-		$('#'+curr_screen).hide();
-		$('#asistencia-urgente').show();
-		curr_screen = 'asistencia-urgente';
-	} else {
-		if(curr_screen == 'home') {
+	switch(curr_screen) {
+		case 'asistencia-coche':
+		case 'asistencia-hogar':
+		case 'asistencia-comercio':
+		case 'asistencia-viaje':
+        	$('#'+curr_screen).hide();
+			$('#asistencia-urgente').show();
+			curr_screen = 'asistencia-urgente';
+        	break;
+			
+		case 'home':
 			navigator.app.exitApp();
-		} else {
+			break;
+			
+		case 'localizacion':
 			$('#'+curr_screen).hide();
+			$('#contacto-oficina').show();
+			curr_screen = 'contacto-oficina';
+        	break;
+			
+		default:
+			('#'+curr_screen).hide();
 			$('#home').show();
 			curr_screen = 'home';
-		}
-	}	
+			break;
+	}
+		
 };
 
 function interceptMenubutton(){

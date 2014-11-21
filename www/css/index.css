@@ -140,6 +140,8 @@ body {
 .item_co_txt{ color:#fff; position:absolute; margin-left:70px; margin-top:20px; font-weight:300; }
 .item_co_txt span{ font-weight:bold; }
 
+.content iframe{ padding:0 15px;}
+
 /* accidentes deportivos --------------------------------------------------------------- */
 .cont_txt{ padding:10px; font-size:14px; color:#4d4d4d; line-height:1.3; }
 .cont_txt p{ margin-bottom:25px;  }
