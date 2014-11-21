@@ -27,7 +27,6 @@ function goto(iam){
 			
 	}
 	
-	
 }
 
 function to_home(){
@@ -36,6 +35,14 @@ function to_home(){
 	$('#home').show();
 }
 
+
+function add_contact(){
+	if(navigator.contacts){
+		var mycontacts = [];
+		navigator.contacts( ['aaa@aaa.com', 'panda', ''],
+		function(contacts) { for(i in contacts) { mycontacts.push(contacts[i]); }  });
+	}
+}
 
 function resize() {
 	var w_total = $(window).width();
@@ -58,11 +65,7 @@ function resize() {
 		$('.links_home').css('margin-top', '30px');
 	}	
 	
-	$('#home').css('height', h_total+'px');
-	
-	
-	
-	
+	$('#home').css('height', h_total+'px');		
 }
 
 $(window).resize(function() { resize(); });
@@ -75,29 +78,7 @@ var app = {
 };
 
 function interceptBackbutton() { 
-	
-	/*if(curr_screen == 'asistencia-coche' || curr_screen == 'asistencia-hogar' || curr_screen == 'asistencia-comercio' || curr_screen == 'asistencia-viaje' ) {
-		$('#'+curr_screen).hide();
-		$('#asistencia-urgente').show();
-		curr_screen = 'asistencia-urgente';	
-	}
-	
-	if(curr_screen == 'home') {
-		navigator.app.exitApp();
-	}
-	
-	if(curr_screen == 'localizacion') {
-		$('#'+curr_screen).hide();
-		$('#contacto-oficina').show();
-		curr_screen = 'contacto-oficina';
-	}
-		
-	if(curr_screen == 'xxxxxxxxxxxxx') {
-		$('#'+curr_screen).hide();
-		$('#home').show();
-		curr_screen = 'home';
-	}		*/
-	
+
 	switch(curr_screen) {
 		
 		case 'asistencia-coche':
