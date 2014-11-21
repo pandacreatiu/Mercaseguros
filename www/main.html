@@ -5,11 +5,6 @@
 <meta charset="utf-8" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="msapplication-tap-highlight" content="no" />
-<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-
-<!--
-<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
--->
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=160dpi" />
 
 <link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -27,27 +22,21 @@
     <div class="logo"> <img src="img/logo.png" width="265" height="51" alt=""/></div> 
     
     <div class="links_home">
-        <div class="link_home1 link_home">
+        <div class="link_home1 link_home" onClick="javascript:goto('asistencia-urgente')">
             <div class="link_home_img"> <img src="img/tlf.png" width="85" height="85" alt=""/> </div> 
             <p class="links_home_txt"> Asitencia Urgente </p>
         </div>
-        <div class="link_home2 link_home">
-            <a href="#contacto-oficina" data-transition="slide" > 
-                <div class="link_home_img"><img src="img/info.png" width="85" height="85" alt=""/> </div>
-                <p class="links_home_txt"> Contacto oficina </p>
-            </a> 
+        <div class="link_home2 link_home" onClick="javascript:goto('contacto-oficina')">
+            <div class="link_home_img"><img src="img/info.png" width="85" height="85" alt=""/> </div>
+            <p class="links_home_txt"> Contacto oficina </p>
         </div>
-        <div class="link_home3 link_home">
-            <a href="#acceso-flotas" data-transition="slide" > 
-                <div class="link_home_img"><img src="img/flotas.png" width="85" height="85" alt=""/> </div>
-                <p class="links_home_txt"> Acceso a Flotas </p>
-            </a> 
+        <div class="link_home3 link_home" onClick="javascript:goto('acceso-flotas')">
+            <div class="link_home_img"><img src="img/flotas.png" width="85" height="85" alt=""/> </div>
+            <p class="links_home_txt"> Acceso a Flotas </p>
         </div>
-        <div class="link_home4 link_home">
-            <a href="#accidentes-deportivos" data-transition="slide" > 
-                <div class="link_home_img"><img src="img/deporte.png" width="85" height="85" alt=""/> </div>
-                <p class="links_home_txt"> Accidentes deportivos </p>
-            </a> 
+        <div class="link_home4 link_home" onClick="javascript:goto('accidentes-deportivos')">
+            <div class="link_home_img"><img src="img/deporte.png" width="85" height="85" alt=""/> </div>
+            <p class="links_home_txt"> Accidentes deportivos </p>
         </div>
         
     </div>	
@@ -66,10 +55,10 @@
 
 
 <!-- ASISTENCIA URGENTE ====================================================================================================== -->
-<div class="asistencia-urgente pages">
+<div id="asistencia-urgente" class="pages">
 	
     <div class="head_gen">
-    	<div class="bt_home" onClick="javascript:tohome('asistencia-urgente');"> <img src="img/bt_home.png" width="59" height="43" alt=""/> </div>
+    	<div class="bt_home" onClick="javascript:to_home()"> <img src="img/bt_home.png" width="59" height="43" alt=""/> </div>
         <div class="title_content txt_gen"> Asistencia Urgente </div>
 	</div>
     
@@ -80,37 +69,29 @@
         
         <div class="asistencia_bts">
         	
-            <a href="#asistencia-coche" data-transition="slide" > 
-        	<div class="asistencia_bt">
+        	<div class="asistencia_bt" onClick="javascript:goto('asistencia-coche');">
 				<div class="asistencia_bt_img"><img src="img/cotxe.png" width="51" height="51" alt=""/></div>
                 <div class="asistencia_bt_txt txt_gen"> Asistencia Coche </div>
                 <div class="asistencia_bt_marca"> <img src="img/marca_bt_h.png" width="12" height="21" alt=""/> </div>
             </div>
-            </a>
             
-            <a href="#asistencia-hogar" data-transition="slide" > 
-        	<div class="asistencia_bt">
+        	<div class="asistencia_bt" onClick="javascript:goto('asistencia-hogar');">
 				<div class="asistencia_bt_img"><img src="img/house.png" width="51" height="51" alt=""/></div>
                 <div class="asistencia_bt_txt txt_gen"> Asistencia Hogar </div>
                 <div class="asistencia_bt_marca"> <img src="img/marca_bt_h.png" width="12" height="21" alt=""/> </div>
             </div>
-            </a>
             
-            <a href="#asistencia-comercio" data-transition="slide" > 
-        	<div class="asistencia_bt">
+        	<div class="asistencia_bt" onClick="javascript:goto('asistencia-comercio');">
 				<div class="asistencia_bt_img"><img src="img/commerce.png" width="51" height="51" alt=""/></div>
                 <div class="asistencia_bt_txt txt_gen"> Asistencia Comercio </div>
                 <div class="asistencia_bt_marca"> <img src="img/marca_bt_h.png" width="12" height="21" alt=""/> </div>
             </div>
-            </a>
             
-            <a href="#asistencia-viaje" data-transition="slide" > 
-        	<div class="asistencia_bt">
+        	<div class="asistencia_bt" onClick="javascript:goto('asistencia-viaje');">
 				<div class="asistencia_bt_img"><img src="img/bag.png" width="51" height="51" alt=""/></div>
                 <div class="asistencia_bt_txt txt_gen"> Asistencia en Viaje </div>
                 <div class="asistencia_bt_marca"> <img src="img/marca_bt_h.png" width="12" height="21" alt=""/> </div>
             </div>
-            </a>
         </div>
         
   </div>
@@ -118,12 +99,10 @@
 
 
 <!-- ASISTENCIA COCHE ====================================================================================================== -->
-<div class="asistencia-coche pages">
+<div id="asistencia-coche" class="pages">
 	
     <div class="head_gen">
-    	<div class="bt_home"> 
-        	<a href="#asistencia-urgente" data-transition="slide" data-direction="reverse"> <img src="img/bt_back.png" width="60" height="43" alt=""/> </a> 	
-        </div>
+    	<div class="bt_home" onClick="javascript:goto('asistencia-urgente');"> <img src="img/bt_back.png" width="60" height="43" alt=""/></div>
         <div class="title_content txt_gen"> Asistencia Coche </div>
 	</div>
     
@@ -168,12 +147,10 @@
 
 
 <!-- ASISTENCIA HOGAR ====================================================================================================== -->
-<div class="asistencia-hogar pages">
+<div id="asistencia-hogar" class="pages">
 	
     <div class="head_gen">
-    	<div class="bt_home"> 
-        	<a href="#asistencia-urgente" data-transition="slide" data-direction="reverse"> <img src="img/bt_back.png" width="60" height="43" alt=""/> </a> 	
-        </div>
+    	<div class="bt_home" onClick="javascript:goto('asistencia-urgente');"> <img src="img/bt_back.png" width="60" height="43" alt=""/> </div>
         <div class="title_content txt_gen"> Asistencia Hogar </div>
 	</div>
     
@@ -218,12 +195,10 @@
 
 
 <!-- ASISTENCIA COMERCIO ====================================================================================================== -->
-<div class="asistencia-comercio pages">
+<div id="asistencia-comercio" class="pages">
 	
     <div class="head_gen">
-    	<div class="bt_home"> 
-        	<a href="#asistencia-urgente" data-transition="slide" data-direction="reverse"> <img src="img/bt_back.png" width="60" height="43" alt=""/> </a> 	
-        </div>
+    	<div class="bt_home" onClick="javascript:goto('asistencia-urgente');"> <img src="img/bt_back.png" width="60" height="43" alt=""/> </div>
         <div class="title_content txt_gen"> Asistencia Comercio </div>
 	</div>
     
@@ -268,12 +243,10 @@
 
 
 <!-- ASISTENCIA EN VIAJE ====================================================================================================== -->
-<div class="asistencia-viaje pages">
+<div id="asistencia-viaje" class="pages">
 	
     <div class="head_gen">
-    	<div class="bt_home"> 
-        	<a href="#asistencia-urgente" data-transition="slide" data-direction="reverse"> <img src="img/bt_back.png" width="60" height="43" alt=""/> </a> 	
-        </div>
+    	<div class="bt_home" onClick="javascript:goto('asistencia-urgente');"> <img src="img/bt_back.png" width="60" height="43" alt=""/> </div>
         <div class="title_content txt_gen"> Asistencia en Viaje </div>
 	</div>
     
@@ -318,10 +291,10 @@
 
 
 <!-- CONTACTO OFICINA ============================================================================== -->
-<div class="contacto-oficina pages">
+<div id="contacto-oficina" class="pages">
 	
     <div class="head_gen">
-    	<div class="bt_home"> <a href="#home" data-transition="slide" data-direction="reverse"> <img src="img/bt_home.png" width="59" height="43" alt=""/> </a> </div>
+    	<div class="bt_home"  onClick="javascript:to_home()"> <img src="img/bt_home.png" width="59" height="43" alt=""/> </div>
         <div class="title_content txt_gen"> Oficina Boix Brokers </div>
 	</div>
     
@@ -369,10 +342,10 @@
 </div>
 
 <!-- ACCESO A FLOTAS ================================================================================================== -->
-<div class="acceso-flotas pages">
+<div id="acceso-flotas" class="pages">
 
 	<div class="head_gen">
-    	<div class="bt_home"> <a href="#home" data-transition="slide" data-direction="reverse"> <img src="img/bt_home.png" width="59" height="43" alt=""/> </a> </div>
+    	<div class="bt_home" onClick="javascript:to_home()"> <img src="img/bt_home.png" width="59" height="43" alt=""/> </div>
         <div class="title_content txt_gen"> Acceso a Flotas </div>
 	</div>
     
@@ -384,10 +357,10 @@
 
 
 <!-- ACCIDENTES DEPORTIVOS ================================================================================================== -->
-<div class="accidentes-deportivos pages">
+<div id="accidentes-deportivos" class="pages">
 
 	<div class="head_gen">
-    	<div class="bt_home"> <a href="#home" data-transition="slide" data-direction="reverse"> <img src="img/bt_home.png" width="59" height="43" alt=""/> </a> </div>
+    	<div class="bt_home" onClick="javascript:to_home()"> <img src="img/bt_home.png" width="59" height="43" alt=""/> </div>
         <div class="title_content txt_gen"> Accidentes Deportivos </div>
 	</div>
     
@@ -511,15 +484,15 @@
 <script type="text/javascript">
 var curr_screen = 'home';
 
-$('.link_home1').click(function() {
-	$('#home').fadeOut();
-	$('.asistencia-urgente').delay(500).fadeIn();
-	curr_screen = 'asistencia-urgente';
-});
+function goto(iam){
+	$('#'+curr_screen).hide();
+	curr_screen = iam;
+	$('#'+iam).show();
+}
 
-
-function tohome(iam){
-	$('.'+iam).fadeOut();
-	$('#home').delay(500).fadeIn();
+function to_home(){
+	$('#'+curr_screen).hide();
+	curr_screen = 'home';
+	$('#home').show();
 }
 </script>

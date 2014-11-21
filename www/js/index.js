@@ -34,14 +34,14 @@ var app = {
     onDeviceReady: function() { app.receivedEvent('deviceready');  },
 
     receivedEvent: function(id) {
-		var parentElement = document.getElementById(id);
+		/*var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 		
-		deviceInfo();
+		deviceInfo();*/
 		
 		resize();
 		
@@ -50,7 +50,7 @@ var app = {
 
 };
 
-function deviceInfo() {
+/*function deviceInfo() {
 	document.getElementById("cordova").innerHTML = cordova.version;
 	document.getElementById("platform").innerHTML = device.platform;
 	document.getElementById("version").innerHTML = device.version;
@@ -73,29 +73,59 @@ function interceptOffline() { eventOutput("Offline event intercepted"); };
 var eventOutput = function(s) {
     var el = document.getElementById("results");
     el.innerHTML = el.innerHTML + s + "<br>";
+};*/
+
+function interceptBackbutton() { 
+	
+	if(curr_screen == 'asistencia-coche' || curr_screen == 'asistencia-hogar' || curr_screen == 'asistencia-comercio' || curr_screen == 'asistencia-viaje') {
+		$('#'+curr_screen).hide();
+		$('#asistencia-urgente').show();
+		curr_screen = 'asistencia-urgente';
+	} else {
+		if(crr_screen == 'home') {
+			navigator.app.exitApp();
+		} else {
+			$('#'+curr_screen).hide();
+			$('#home').show();
+			curr_screen = 'home';
+		}
+	}	
 };
 
+function interceptMenubutton(){
+	if(crr_screen != 'home') {
+		$('#'+curr_screen).hide();
+		curr_screen = 'home';
+		$('#home').show();
+	}
+}
+
+function interceptOnline(){ }
+function interceptOffline(){ }
+
 window.onload = function() {
-	addListenerToClass('interceptBackButton', function() { document.addEventListener('backbutton', interceptBackbutton, false); });
-	addListenerToClass('stopInterceptOfBackButton', function() { document.removeEventListener('backbutton', interceptBackbutton, false); });
-	
-	addListenerToClass('interceptMenuButton', function() { document.addEventListener('menubutton', interceptMenubutton, false); });
-	addListenerToClass('stopInterceptOfMenuButton', function() { document.removeEventListener('menubutton', interceptMenubutton, false); });
-	
-	addListenerToClass('interceptSearchButton', function() { document.addEventListener('searchbutton', interceptSearchbutton, false); });
-	addListenerToClass('stopInterceptOfSearchButton', function() { document.removeEventListener('searchbutton', interceptSearchbutton, false); });
-	
-	addListenerToClass('interceptResume', function() { document.addEventListener('resume', interceptResume, false); });
-	addListenerToClass('stopInterceptOfResume', function() { document.removeEventListener('resume', interceptResume, false); });
-	
-	addListenerToClass('interceptPause', function() { document.addEventListener('pause', interceptPause, false); });
-	addListenerToClass('stopInterceptOfPause', function() { document.removeEventListener('pause', interceptPause, false); });
-	
-	addListenerToClass('interceptOnline', function() { document.addEventListener('online', interceptOnline, false); });
-	addListenerToClass('stopInterceptOfOnline', function() { document.removeEventListener('online', interceptOnline, false); });
-	
-	addListenerToClass('interceptOffline', function() { document.addEventListener('offline', interceptOffline, false); });
-	addListenerToClass('stopInterceptOfOffline', function() { document.removeEventListener('offline', interceptOffline, false); });
-	
 	resize();
+	
+	document.addEventListener('backbutton', interceptBackbutton, false);
+	//document.removeEventListener('backbutton', interceptBackbutton, false);
+	
+	document.addEventListener('menubutton', interceptMenubutton, false);
+	//document.removeEventListener('menubutton', interceptMenubutton, false);
+	
+	//document.addEventListener('searchbutton', interceptSearchbutton, false);
+	//document.removeEventListener('searchbutton', interceptSearchbutton, false);
+	
+	//document.addEventListener('resume', interceptResume, false);
+	//document.removeEventListener('resume', interceptResume, false);
+	
+	//document.addEventListener('pause', interceptPause, false);
+	//document.removeEventListener('pause', interceptPause, false);
+	
+	document.addEventListener('online', interceptOnline, false);
+	//document.removeEventListener('online', interceptOnline, false);
+	
+	document.addEventListener('offline', interceptOffline, false);
+	//document.removeEventListener('offline', interceptOffline, false);
+	
+	
 }
