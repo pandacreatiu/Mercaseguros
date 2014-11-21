@@ -21,7 +21,7 @@ function goto(iam){
 		
 		} else {
 		
-			$('.content_iframe').html('<div class="txt_oficina txt_gen"> PROXIMAMENTE </div>');
+			$('.content_iframe').html('<div class="txt_oficina txt_gen"> TIENES QUE ESTAS ONLINE PARA VER EL MAPA </div>');
 		
 		}
 			
@@ -33,15 +33,6 @@ function to_home(){
 	$('#'+curr_screen).hide();
 	curr_screen = 'home';
 	$('#home').show();
-}
-
-
-function add_contact(){
-	if(navigator.contacts){
-		var mycontacts = [];
-		navigator.contacts( ['aaa@aaa.com', 'panda', ''],
-		function(contacts) { for(i in contacts) { mycontacts.push(contacts[i]); }  });
-	}
 }
 
 function resize() {
