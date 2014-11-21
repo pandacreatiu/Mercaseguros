@@ -45,8 +45,6 @@ var app = {
 		
 		resize();
 		
-		var viewportScale = 1 / window.devicePixelRatio;
-		$("#viewport").attr("content","user-scalable=no, initial-scale="+viewportScale+", minimum-scale=0.2, maximum-scale=2, width=device-width");
         //console.log('Received Event: ' + id);
     }
 
