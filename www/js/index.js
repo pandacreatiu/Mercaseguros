@@ -6,7 +6,6 @@ function goto(iam){
 	$('#'+iam).show();
 	
 	
-	
 	if(iam == 'localizacion'){
 		
 		if (navigator.onLine) {
