@@ -23,7 +23,7 @@ function resize() {
 	
 }
 
-//$(window).resize(function() { resize(); });
+$(window).resize(function() { resize(); });
 
 
 var app = {
